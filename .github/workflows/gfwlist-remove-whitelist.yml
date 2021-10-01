@@ -18,7 +18,8 @@ jobs:
         wget https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt && \
         base64 -d ./gfwlist.txt > /tmp/tempstr.txt && \
         sed -i ':a;$!{N;ba};s/Whitelist Start.*Whitelist End/Remove-Whitelist/' /tmp/tempstr.txt && \
-        base64 /tmp/tempstr.txt > ./gfwlist-remove-whitelist.txt &
+        base64 /tmp/tempstr.txt > ./gfwlist-remove-whitelist.txt && \
+        git add . &
     - name: Commit files
       run: |
         git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
