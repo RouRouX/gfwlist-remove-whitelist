@@ -3,7 +3,7 @@ name: gfwlist-remove-whitelist
 on:
   workflow_dispatch:
   schedule:
-    - cron:  '30 5 */7 * *'
+    - cron:  '30 5 * * 5'
 
 jobs:
   build:
