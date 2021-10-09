@@ -15,7 +15,7 @@ jobs:
         fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
     - name: Create local changes
       run: |
-        wget -O https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt && \
+        wget -O gfwlist.txt https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt && \
         base64 -d ./gfwlist.txt > /tmp/tempstr.txt && \
         sed -i ':a;$!{N;ba};s/Whitelist Start.*Whitelist End/Remove-Whitelist/' /tmp/tempstr.txt && \
         base64 /tmp/tempstr.txt > ./gfwlist-remove-whitelist.txt && \
